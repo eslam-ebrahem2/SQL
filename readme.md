@@ -15,10 +15,10 @@ SQL commands are divided into the following categories:
 
 ## 📂 Contents
 
-- [DDL (Data Definition Language)](./transact SQL/DDL.md)  
-- [DML (Data Manipulation Language)](./transact SQL/DML.md)  
-- [DQL (Data Query Language)](./transact SQL/DQL.md)  
-- [TCL (Transaction Control Language)](./transact SQL/TCL.md)  
+- [DDL (Data Definition Language)](./transact-SQL/DDL.md)  
+- [DML (Data Manipulation Language)](./transact-SQL/DML.md)  
+- [DQL (Data Query Language)](./transact-SQL/DQL.md)  
+- [TCL (Transaction Control Language)](./transact-SQL/TCL.md)  
 
 ---
 
