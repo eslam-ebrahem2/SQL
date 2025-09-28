@@ -1,4 +1,6 @@
-# شرح شامل لأنواع أوامر SQL (Transact-SQL)
+
+
+# شرح  لأنواع أوامر SQL (Transact-SQL)
 
 ## 📋 فهرس المحتويات
 1. [مقدمة عن SQL](#مقدمة-عن-sql)
@@ -10,7 +12,7 @@
 
 ## 🚀 مقدمة عن SQL
 
-**SQL (Structured Query Language)** هي لغة قياسية للتعامل مع قواعد البيانات العلائقية. تنقسم أوامر SQL إلى عدة أنواع حسب الوظيفة:
+**SQL (Structured Query Language)** هي لغة قياسية للتعامل مع قواعد البيانات العلائقية. تنقسم أوامر SQL إلى عدة أنواع حسب الوظيفة.
 
 ---
 
@@ -20,6 +22,8 @@
 ### ✨ أوامر DDL الرئيسية
 
 ### CREATE - إنشاء كائن جديد
+<div dir="ltr">
+
 ```sql
 -- إنشاء قاعدة بيانات
 CREATE DATABASE SchoolDB;
@@ -43,8 +47,11 @@ CREATE TABLE Courses (
     Credits INT
 );
 ```
+</div>
 
 ### ALTER - تعديل كائن موجود
+<div dir="ltr">
+
 ```sql
 -- إضافة عمود جديد
 ALTER TABLE Students ADD PhoneNumber NVARCHAR(15);
@@ -66,8 +73,11 @@ CREATE TABLE Enrollments (
     FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
 );
 ```
+</div>
 
 ### DROP - حذف كائن
+<div dir="ltr">
+
 ```sql
 -- حذف جدول
 DROP TABLE Enrollments;
@@ -75,11 +85,15 @@ DROP TABLE Enrollments;
 -- حذف قاعدة بيانات
 DROP DATABASE SchoolDB;
 ```
+</div>
 
 ### TRUNCATE - حذف جميع البيانات
+<div dir="ltr">
+
 ```sql
 TRUNCATE TABLE Students;
 ```
+</div>
 
 ---
 
@@ -89,6 +103,8 @@ TRUNCATE TABLE Students;
 ### ✨ أوامر DML الرئيسية
 
 ### INSERT - إدراج بيانات جديدة
+<div dir="ltr">
+
 ```sql
 -- إدراج بيانات في جدول الطلاب
 INSERT INTO Students (StudentID, FirstName, LastName, BirthDate, Email)
@@ -104,8 +120,11 @@ VALUES
 (102, 'البرمجة', 4),
 (103, 'الرياضيات', 3);
 ```
+</div>
 
 ### UPDATE - تحديث بيانات موجودة
+<div dir="ltr">
+
 ```sql
 -- تحديث بريد إلكتروني لطالب محدد
 UPDATE Students 
@@ -118,8 +137,11 @@ SET PhoneNumber = '0123456789',
     LastName = 'السيد'
 WHERE StudentID = 2;
 ```
+</div>
 
 ### DELETE - حذف بيانات
+<div dir="ltr">
+
 ```sql
 -- حذف طالب محدد
 DELETE FROM Students 
@@ -129,6 +151,7 @@ WHERE StudentID = 3;
 DELETE FROM Students 
 WHERE YEAR(BirthDate) < 2000;
 ```
+</div>
 
 ---
 
@@ -138,6 +161,8 @@ WHERE YEAR(BirthDate) < 2000;
 ### ✨ أمر DQL الرئيسي: SELECT
 
 ### استعلامات أساسية
+<div dir="ltr">
+
 ```sql
 -- استعراض جميع البيانات
 SELECT * FROM Students;
@@ -159,8 +184,11 @@ SELECT YEAR(BirthDate) AS BirthYear, COUNT(*) AS StudentCount
 FROM Students
 GROUP BY YEAR(BirthDate);
 ```
+</div>
 
 ### استعلامات متقدمة مع JOIN
+<div dir="ltr">
+
 ```sql
 -- INNER JOIN بين الجداول
 SELECT 
@@ -181,8 +209,11 @@ FROM Students s
 LEFT JOIN Enrollments e ON s.StudentID = e.StudentID
 LEFT JOIN Courses c ON e.CourseID = c.CourseID;
 ```
+</div>
 
 ### دوال تجميعية
+<div dir="ltr">
+
 ```sql
 SELECT 
     COUNT(*) AS TotalStudents,
@@ -191,6 +222,7 @@ SELECT
     MAX(BirthDate) AS YoungestStudent
 FROM Students;
 ```
+</div>
 
 ---
 
@@ -200,11 +232,16 @@ FROM Students;
 ### ✨ أوامر TCL الرئيسية
 
 ### BEGIN TRANSACTION - بدء معاملة
+<div dir="ltr">
+
 ```sql
 BEGIN TRANSACTION;
 ```
+</div>
 
 ### COMMIT - تأكيد التغييرات
+<div dir="ltr">
+
 ```sql
 BEGIN TRANSACTION;
 
@@ -216,8 +253,11 @@ WHERE AccountID = 2;
 
 COMMIT TRANSACTION;
 ```
+</div>
 
 ### ROLLBACK - تراجع عن التغييرات
+<div dir="ltr">
+
 ```sql
 BEGIN TRANSACTION;
 
@@ -227,8 +267,11 @@ WHERE StudentID = 1;
 -- إذا أردنا التراجع عن الحذف
 ROLLBACK TRANSACTION;
 ```
+</div>
 
 ### SAVE TRANSACTION - نقطة حفظ
+<div dir="ltr">
+
 ```sql
 BEGIN TRANSACTION;
 
@@ -241,10 +284,12 @@ ROLLBACK TRANSACTION SavePoint1;
 
 COMMIT TRANSACTION;
 ```
+</div>
 
 ---
 
 ## 🎯 مثال شامل يدمج جميع الأنواع
+<div dir="ltr">
 
 ```sql
 -- DDL: إنشاء قاعدة بيانات وجداول
@@ -292,6 +337,7 @@ END CATCH;
 SELECT * FROM Accounts;
 SELECT * FROM Transactions;
 ```
+</div>
 
 ---
 
@@ -305,4 +351,7 @@ SELECT * FROM Transactions;
 | **TCL** | Transaction Control Language | التحكم في المعاملات | `BEGIN`, `COMMIT`, `ROLLBACK`, `SAVE` |
 
 
-</div>
+
+
+---
+
