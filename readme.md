@@ -25,13 +25,13 @@
 <div dir="ltr">
 
 ```sql
--- إنشاء قاعدة بيانات
+-- A إنشاء قاعدة بيانات
 CREATE DATABASE SchoolDB;
 
--- استخدام قاعدة البيانات
+-- Bاستخدام قاعدة البيانات
 USE SchoolDB;
 
--- إنشاء جدول الطلاب
+--C إنشاء جدول الطلاب
 CREATE TABLE Students (
     StudentID INT PRIMARY KEY,
     FirstName NVARCHAR(50) NOT NULL,
@@ -53,17 +53,17 @@ CREATE TABLE Courses (
 <div dir="ltr">
 
 ```sql
--- إضافة عمود جديد
+--a إضافة عمود جديد
 ALTER TABLE Students ADD PhoneNumber NVARCHAR(15);
 
--- تعديل نوع العمود
+--a تعديل نوع العمود
 ALTER TABLE Students ALTER COLUMN Email NVARCHAR(150);
 
--- إضافة constraint
+--a إضافة constraint
 ALTER TABLE Students ADD CONSTRAINT CHK_BirthDate 
 CHECK (BirthDate < GETDATE());
 
--- إنشاء جدول التسجيلات مع المفاتيح الخارجية
+--a إنشاء جدول التسجيلات مع المفاتيح الخارجية
 CREATE TABLE Enrollments (
     EnrollmentID INT PRIMARY KEY,
     StudentID INT,
@@ -79,10 +79,10 @@ CREATE TABLE Enrollments (
 <div dir="ltr">
 
 ```sql
--- حذف جدول
+--a حذف جدول
 DROP TABLE Enrollments;
 
--- حذف قاعدة بيانات
+-- aحذف قاعدة بيانات
 DROP DATABASE SchoolDB;
 ```
 </div>
@@ -106,14 +106,14 @@ TRUNCATE TABLE Students;
 <div dir="ltr">
 
 ```sql
--- إدراج بيانات في جدول الطلاب
+--i إدراج بيانات في جدول الطلاب
 INSERT INTO Students (StudentID, FirstName, LastName, BirthDate, Email)
 VALUES 
 (1, 'أحمد', 'محمد', '2000-05-15', 'ahmed@email.com'),
 (2, 'فاطمة', 'علي', '2001-08-22', 'fatima@email.com'),
 (3, 'يوسف', 'حسن', '1999-12-10', 'youssef@email.com');
 
--- إدراج بيانات في جدول المواد
+--i إدراج بيانات في جدول المواد
 INSERT INTO Courses (CourseID, CourseName, Credits)
 VALUES 
 (101, 'قواعد البيانات', 3),
@@ -126,12 +126,12 @@ VALUES
 <div dir="ltr">
 
 ```sql
--- تحديث بريد إلكتروني لطالب محدد
+--i تحديث بريد إلكتروني لطالب محدد
 UPDATE Students 
 SET Email = 'ahmed.new@email.com'
 WHERE StudentID = 1;
 
--- تحديث عدة حقول مرة واحدة
+--i تحديث عدة حقول مرة واحدة
 UPDATE Students 
 SET PhoneNumber = '0123456789', 
     LastName = 'السيد'
@@ -143,11 +143,11 @@ WHERE StudentID = 2;
 <div dir="ltr">
 
 ```sql
--- حذف طالب محدد
+--i حذف طالب محدد
 DELETE FROM Students 
 WHERE StudentID = 3;
 
--- حذف جميع الطلاب الذين ولدوا قبل سنة 2000
+--i حذف جميع الطلاب الذين ولدوا قبل سنة 2000
 DELETE FROM Students 
 WHERE YEAR(BirthDate) < 2000;
 ```
@@ -164,22 +164,22 @@ WHERE YEAR(BirthDate) < 2000;
 <div dir="ltr">
 
 ```sql
--- استعراض جميع البيانات
+--i استعراض جميع البيانات
 SELECT * FROM Students;
 
--- استعراض أعمدة محددة
+--i استعراض أعمدة محددة
 SELECT StudentID, FirstName, LastName 
 FROM Students;
 
--- مع شرط WHERE
+--i مع شرط WHERE
 SELECT * FROM Students 
 WHERE YEAR(BirthDate) > 2000;
 
--- مع ORDER BY للترتيب
+--i مع ORDER BY للترتيب
 SELECT * FROM Students 
 ORDER BY LastName, FirstName;
 
--- مع GROUP BY للتجميع
+--i مع GROUP BY للتجميع
 SELECT YEAR(BirthDate) AS BirthYear, COUNT(*) AS StudentCount
 FROM Students
 GROUP BY YEAR(BirthDate);
