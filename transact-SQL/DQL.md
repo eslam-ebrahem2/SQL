@@ -1,7 +1,4 @@
 
-
-
-```markdown
 # DQL (Data Query Language)
 
 **Definition:**  

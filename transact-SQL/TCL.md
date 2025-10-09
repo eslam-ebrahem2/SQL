@@ -1,6 +1,4 @@
 
-
-```markdown
 # TCL (Transaction Control Language)
 
 **Definition:**  

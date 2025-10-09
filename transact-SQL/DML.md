@@ -1,7 +1,4 @@
 
-
-
-```markdown
 # DML (Data Manipulation Language)
 
 **Definition:**  
